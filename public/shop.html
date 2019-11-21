@@ -1,0 +1,30 @@
+<html>
+
+<head>
+    <title>Votes</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="voting" style="margin-left: 5em;">
+        <h1> Shop Interface </h1>
+
+        <h2>Avaliable Items</h2>
+        <div v-for="candidate in candidates">
+            <input type="checkbox" v-model="candidate.selected"> {{candidate.Name}}
+        </div>
+        <button v-on:click="dovote()"> Order Items </button>
+
+        <h2>Order Receipt</h2>
+        <div v-for="candidate in ballot">
+            {{candidate.Name}}
+        </div>
+    </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js" integrity="sha256-mpnrJ5DpEZZkwkE1ZgkEQQJW/46CSEh/STrZKOB/qoM=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.2/dist/vue.js"></script>
+    <script src="javascripts/app.js"></script>
+
+</body>
+
+</html>

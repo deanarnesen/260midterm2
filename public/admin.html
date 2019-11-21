@@ -7,17 +7,15 @@
 
 <body>
   <div id="voting" style="margin-left: 5em;">
-    <h1> Administrative Interface </h1>
+    <h1> Admin Panel </h1>
     <form v-on:submit.prevent="addCandidate">
       <input type="text" v-model="candidate">
-      <button type="submit">Add Candidate</button>
+      <button type="submit">Add Item</button>
     </form>
 
-    <h1>Current Candidates</h1>
+    <h2>Current Items</h2>
     <div v-for="candidate in candidates">
-      <span class="glyphicon glyphicon-remove" 
-        v-on:click="deleteCandidate(candidate)"></span> 
-        {{candidate.Name}} - votes {{candidate.votes}}
+      <span class="glyphicon glyphicon-remove" v-on:click="deleteCandidate(candidate)"></span> {{candidate.Name}} - orders: {{candidate.votes}}
     </div>
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js" integrity="sha256-mpnrJ5DpEZZkwkE1ZgkEQQJW/46CSEh/STrZKOB/qoM=" crossorigin="anonymous"></script>

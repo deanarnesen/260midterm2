@@ -12,7 +12,7 @@ var app = new Vue({
   },
   methods: {
     addCandidate() {
-      var url = "http://class.clementbyu.com:8080/voting";
+      var url = "http://deanarnesen.com:8080/voting";
       axios.post(url, {
           Name: this.candidate,
           votes: 0
@@ -31,7 +31,7 @@ var app = new Vue({
     deleteCandidate(candidate) {
       var index = this.candidates.indexOf(candidate);
       if (index > -1) {
-        var url = "http://class.clementbyu.com:8080/voting/" + candidate._id;
+        var url = "http://deanarnesen.com:8080/voting/" + candidate._id;
         axios.delete(url)
           .then(response => {
             console.log(response.data.votes);
@@ -44,7 +44,7 @@ var app = new Vue({
       }
     },
     upvote(candidate) {
-      var url = "http://class.clementbyu.com:8080/voting/" + candidate._id + "/upvote";
+      var url = "http://deanarnesen.com:8080/voting/" + candidate._id + "/upvote";
       console.log("upvote URL " + url);
       axios.put(url)
         .then(response => {
@@ -57,7 +57,7 @@ var app = new Vue({
     },
     async getall() {
       console.log("get all");
-      var url = "http://class.clementbyu.com:8080/voting"; // This is the route we set up in index.js
+      var url = "http://deanarnesen.com:8080/voting"; // This is the route we set up in index.js
       try {
         let response = await axios.get(url);
         this.candidates = response.data; // Assign array to returned response
@@ -70,7 +70,7 @@ var app = new Vue({
     },
     dovote() {
       console.log("In Dovote");
-      for(var candidate of this.candidates) {
+      for (var candidate of this.candidates) {
         if (candidate.selected) {
           this.upvote(candidate);
           this.ballot.push(candidate);
